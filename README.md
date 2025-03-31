@@ -1,5 +1,4 @@
 # Gravox-Gym-
-A intenção é criar um site exclusivamente para academia para que as pessoas tenham mais noção na questão em melhorar de vida, focando exclusivamente na saúde e do bem estar do cliente. Com isso vamos disponibilizar: Treinos, Personal, Indicações de ter uma boa alimentação, Nutricionistas e muito mais... 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
