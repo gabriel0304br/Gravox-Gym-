@@ -28,7 +28,7 @@
       <a href="#planos" class="button">Conheça Nossos Planos</a>
     </section>
 
--
+
     <section id="sobre" class="card">
       <h2>Sobre Nós</h2>
       <p>Bem-vindo à Gravox Gym, onde ajudamos você a alcançar seus objetivos de saúde e bem-estar com equipamentos de última geração e profissionais qualificados!</p>
