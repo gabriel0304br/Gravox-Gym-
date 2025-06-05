@@ -1,99 +1,54 @@
-// === Scroll suave para âncoras internas ===
-function ativarScrollSuave() {
-  const linksInternos = document.querySelectorAll('a[href^="#"]');
-  linksInternos.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const alvoId = link.getAttribute('href');
-      const alvo = document.querySelector(alvoId);
-      if (alvo) {
-        alvo.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
+// ===== MENU HAMBURGER =====
+const menuToggle = document.querySelector('#menu-toggle'); // botão menu hamburger
+const navMenu = document.querySelector('nav ul');
+
+if (menuToggle && navMenu) {
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active'); // ativa/desativa menu no mobile
   });
 }
 
-// === Validação de email ===
-function validarEmail(email) {
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return regex.test(email);
+// ===== SLIDESHOW AUTOMÁTICO =====
+let slideIndex = 0;
+const slides = document.querySelectorAll('.imagens img');
+
+function showSlides() {
+  slides.forEach((slide, i) => {
+    slide.style.display = 'none';
+  });
+  slideIndex++;
+  if (slideIndex > slides.length) slideIndex = 1;
+  slides[slideIndex - 1].style.display = 'block';
+  setTimeout(showSlides, 4000); // troca a cada 4 segundos
 }
 
-// === Validação do formulário de contato ===
-function ativarValidacaoFormulario() {
-  const form = document.getElementById('formContato');
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-
-    const nome = form.nome.value.trim();
-    const email = form.email.value.trim();
-    const mensagem = form.mensagem.value.trim();
-
-    if (!nome || !email || !mensagem) {
-      alert('Por favor, preencha todos os campos.');
-      return;
-    }
-
-    if (!validarEmail(email)) {
-      alert('Por favor, insira um email válido.');
-      return;
-    }
-
-    alert('Mensagem enviada com sucesso! Retornaremos em breve.');
-    form.reset();
-  });
+// Só inicia slideshow se houver imagens
+if (slides.length > 0) {
+  showSlides();
 }
 
-// === Animação ao entrar na viewport ===
-function ativarAnimacoesEntrada() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animar');
-      }
-    });
-  }, { threshold: 0.2 });
+// ===== TABS =====
+// Supondo que você tenha abas com botões e conteúdo correspondentes
+// Exemplo de estrutura HTML esperada:
+// <div class="tabs">
+//   <button class="tab-button" data-tab="tab1">Tab 1</button>
+//   <button class="tab-button" data-tab="tab2">Tab 2</button>
+// </div>
+// <div id="tab1" class="tab-content">Conteúdo 1</div>
+// <div id="tab2" class="tab-content">Conteúdo 2</div>
 
-  document.querySelectorAll('.card').forEach(card => observer.observe(card));
-}
+const tabButtons = document.querySelectorAll('.tab-button');
+const tabContents = document.querySelectorAll('.tab-content');
 
-// === Botão "Voltar ao Topo" ===
-function criarBotaoVoltarTopo() {
-  const botao = document.createElement('button');
-  botao.textContent = '↑';
-  botao.id = 'voltarTopo';
-
-  Object.assign(botao.style, {
-    position: 'fixed',
-    bottom: '20px',
-    right: '20px',
-    padding: '10px 15px',
-    fontSize: '20px',
-    border: 'none',
-    borderRadius: '8px',
-    backgroundColor: '#e53935',
-    color: '#fff',
-    cursor: 'pointer',
-    display: 'none',
-    boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
-    zIndex: '1000',
+tabButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const tabId = button.getAttribute('data-tab');
+    // Remove ativo de todos os botões e conteúdos
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    tabContents.forEach(content => content.style.display = 'none');
+    // Ativa o selecionado
+    button.classList.add('active');
+    const activeContent = document.getElementById(tabId);
+    if (activeContent) activeContent.style.display = 'block';
   });
-
-  document.body.appendChild(botao);
-
-  window.addEventListener('scroll', () => {
-    botao.style.display = window.scrollY > 300 ? 'block' : 'none';
-  });
-
-  botao.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
-
-// === Inicialização do script ===
-document.addEventListener('DOMContentLoaded', () => {
-  ativarScrollSuave();
-  ativarValidacaoFormulario();
-  ativarAnimacoesEntrada();
-  criarBotaoVoltarTopo();
 });
