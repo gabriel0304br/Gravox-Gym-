@@ -5,9 +5,7 @@
   <title>Gravox Gym</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* Estilos básicos para o menu hamburger e tabs */
-
-    /* Botão menu hamburger */
+    /* Estilos básicos para o menu hamburger e tabs */  
     #menu-toggle {
       display: none;
       position: fixed;
@@ -22,17 +20,12 @@
       z-index: 1100;
       border-radius: 6px;
     }
-
-    /* Menu escondido no mobile */
     nav ul {
       transition: max-height 0.3s ease;
     }
-
     nav ul.active {
-      max-height: 500px; /* só pra demonstrar, ajuste conforme precisar */
+      max-height: 500px;
     }
-
-    /* Menu para telas pequenas */
     @media (max-width: 768px) {
       nav ul {
         max-height: 0;
@@ -48,27 +41,20 @@
         height: auto;
         z-index: 1000;
       }
-
       nav ul li {
         margin-bottom: 15px;
       }
-
       #menu-toggle {
         display: block;
       }
     }
-
-    /* Tabs - ocultar conteúdos por padrão */
     .tab-content {
       display: none;
       padding: 20px 0;
     }
-
     .tab-content.active {
       display: block;
     }
-
-    /* Botões das tabs */
     .tab-button {
       cursor: pointer;
       background-color: #1a1a1a;
@@ -80,7 +66,6 @@
       font-weight: bold;
       transition: background-color 0.3s ease;
     }
-
     .tab-button.active,
     .tab-button:hover {
       background-color: #ff0000;
@@ -110,13 +95,10 @@
       <p>Entre para a melhor academia da cidade e atinja seus objetivos.</p>
       <a href="#planos" class="button">Conheça Nossos Planos</a>
     </section>
-
     <section id="sobre" class="card">
       <h2>Sobre Nós</h2>
       <p>Bem-vindo à Gravox Gym, onde ajudamos você a alcançar seus objetivos de saúde e bem-estar com equipamentos de última geração e profissionais qualificados!</p>
     </section>
-
-    <!-- TABS para planos -->
     <section id="planos" class="card">
       <h2>Nossos Planos</h2>
       <div class="tabs">
@@ -134,7 +116,6 @@
         <p><strong>R$ 199/mês</strong></p>
       </div>
     </section>
-
     <section id="galeria" class="card">
       <h2>Galeria</h2>
       <div class="imagens">
@@ -143,7 +124,6 @@
         <img src="img3.jpg" alt="Academia 3" />
       </div>
     </section>
-
     <section id="depoimentos" class="card">
       <h2>O que nossos alunos dizem</h2>
       <div class="card">
@@ -153,7 +133,6 @@
         <p>"Estrutura completa e ambiente motivador." - Maria Oliveira</p>
       </div>
     </section>
-
     <section id="contato" class="card">
       <h2>Contato</h2>
       <form id="formContato">
@@ -172,7 +151,6 @@
         <button type="submit" class="button">Enviar</button>
       </form>
     </section>
-
     <footer style="text-align:center; padding: 20px; color: #aaa;">
       <p>&copy; 2025 Gravox Gym. Todos os direitos reservados.</p>
     </footer>
@@ -181,7 +159,6 @@
   <button id="voltarTopo" aria-label="Voltar ao topo">↑</button>
 
   <script>
-    // MENU HAMBURGER
     const menuToggle = document.querySelector('#menu-toggle');
     const navMenu = document.querySelector('nav ul');
 
@@ -189,7 +166,6 @@
       navMenu.classList.toggle('active');
     });
 
-    // SLIDESHOW AUTOMÁTICO
     let slideIndex = 0;
     const slides = document.querySelectorAll('.imagens img');
 
@@ -207,7 +183,6 @@
       showSlides();
     }
 
-    // TABS
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabContents = document.querySelectorAll('.tab-content');
 
@@ -217,12 +192,10 @@
         tabButtons.forEach(btn => btn.classList.remove('active'));
         tabContents.forEach(content => content.classList.remove('active'));
         button.classList.add('active');
-        const activeContent = document.getElementById(tabId);
-        if (activeContent) activeContent.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
       });
     });
 
-    // Scroll suave para âncoras internas
     const linksInternos = document.querySelectorAll('a[href^="#"]');
     linksInternos.forEach(link => {
       link.addEventListener('click', e => {
@@ -235,7 +208,6 @@
       });
     });
 
-    // Validação de formulário simples
     const form = document.getElementById('formContato');
     form.addEventListener('submit', e => {
       e.preventDefault();
@@ -256,7 +228,6 @@
       form.reset();
     });
 
-    // Animação de entrada (adiciona classe animar quando o card aparece na viewport)
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -267,7 +238,6 @@
 
     document.querySelectorAll('.card').forEach(card => observer.observe(card));
 
-    // Botão voltar ao topo
     const voltarTopo = document.getElementById('voltarTopo');
     window.addEventListener('scroll', () => {
       voltarTopo.style.display = window.scrollY > 300 ? 'block' : 'none';
