@@ -57,6 +57,14 @@ section.card {
   margin: 30px 0;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+section.card.animar {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 section.card h2 {
@@ -80,6 +88,8 @@ section.card p {
   text-decoration: none;
   transition: background 0.3s;
   font-weight: bold;
+  cursor: pointer;
+  border: none;
 }
 
 .button:hover {
@@ -133,4 +143,22 @@ footer {
   color: #888;
 }
 
-
+/* Botão "Voltar ao Topo" */
+#voltarTopo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  font-size: 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e53935;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+#voltarTopo:hover {
+  background-color: #cc0000;
+}
