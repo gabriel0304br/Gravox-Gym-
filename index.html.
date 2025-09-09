@@ -1,336 +1,162 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gravox Gym</title>
-  <style>
-    /* Estilos básicos para o menu hamburger e tabs */
-    #menu-toggle {
-      display: none;
-      position: fixed;
-      top: 15px;
-      right: 20px;
-      background: #ff0000;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      padding: 10px 15px;
-      font-size: 24px;
-      cursor: pointer;
-      z-index: 1100;
-    }
-    nav ul {
-      transition: max-height 0.3s ease;
-    }
-    nav ul.active {
-      max-height: 500px;
-    }
-
-    /* Responsivo */
-    @media (max-width: 768px) {
-      nav ul {
-        max-height: 0;
-        overflow: hidden;
-        flex-direction: column;
-        background: #000;
-        position: fixed;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        border-left: 4px solid #ff0000;
-        padding: 20px;
-        z-index: 1000;
-      }
-      nav ul li {
-        margin-bottom: 15px;
-      }
-      #menu-toggle {
-        display: block;
-      }
-    }
-
-    /* Tabs */
-    .tab-content {
-      display: none;
-      padding: 20px 0;
-    }
-    .tab-content.active {
-      display: block;
-    }
-    .tab-button {
-      cursor: pointer;
-      background: #1a1a1a;
-      border: none;
-      border-radius: 6px;
-      padding: 10px 20px;
-      margin-right: 10px;
-      color: #fff;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-    .tab-button.active, .tab-button:hover {
-      background: #ff0000;
-      color: #fff;
-    }
-
-    /* Layout básico */
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      background: #111;
-      color: #eee;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px;
-      background: #000;
-      color: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 1200;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      margin: 0;
-      padding: 0;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-    }
-    .card {
-      background: #1a1a1a;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 40px;
-      box-shadow: 0 0 10px #0006;
-    }
-    .button {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #ff0000;
-      color: #fff;
-      border-radius: 6px;
-      text-decoration: none;
-    }
-
-    /* Galeria */
-    .imagens {
-      position: relative;
-      height: 300px;
-    }
-    .imagens img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-    .imagens img.active {
-      opacity: 1;
-    }
-
-    /* Botão voltar ao topo */
-    #voltarTopo {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      padding: 10px 14px;
-      font-size: 20px;
-      border: none;
-      border-radius: 50%;
-      background: #ff0000;
-      color: #fff;
-      cursor: pointer;
-      display: none;
-      z-index: 1100;
-    }
-
-    /* Animação de entrada simples */
-    .animar {
-      animation: fadeUp 0.7s forwards;
-    }
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <h1>Gravox Gym</h1>
-    <button id="menu-toggle">☰</button>
-    <nav>
-      <ul>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#planos">Planos</a></li>
-        <li><a href="#galeria">Galeria</a></li>
-        <li><a href="#depoimentos">Depoimentos</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
+  <!-- Cabeçalho -->
+  <header class="reveal">
+    <div class="header-container">
+      <h1>Gravox <span>Gym</span></h1>
+      <button id="menu-toggle" aria-label="Abrir menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav>
+        <ul>
+          <li><a href="#" data-tab="home" class="active">Home</a></li>
+          <li><a href="#" data-tab="sobre">Sobre</a></li>
+          <li><a href="#" data-tab="diferenciais">Diferenciais</a></li>
+          <li><a href="#" data-tab="planos">Planos</a></li>
+          <li><a href="#" data-tab="galeria">Galeria</a></li>
+          <li><a href="#" data-tab="videos">Vídeos</a></li>
+          <li><a href="#" data-tab="depoimentos">Depoimentos</a></li>
+          <li><a href="#" data-tab="contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section class="container" id="sobre">
-    <h2>Transforme seu Corpo Hoje!</h2>
-    <p>Entre para a melhor academia da cidade e atinja seus objetivos.</p>
-    <a href="#planos" class="button">Conheça Nossos Planos</a>
-  </section>
+  <main class="container">
+    <!-- HOME -->
+    <section id="home" class="tab-content active fade-in">
+      <div class="banner reveal">
+        <h2 class="reveal">Transforme seu Corpo com Gravox Gym!</h2>
+        <p class="reveal">Treinos personalizados, motivação e resultados reais para todos os níveis.</p>
+        <a href="#" class="button reveal" data-tab="planos">Veja Nossos Planos</a>
+      </div>
+      <div class="home-carousel reveal">
+        <div class="slide"><img src="https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg" alt="Treino Gravox Gym"></div>
+        <div class="slide"><img src="https://images.pexels.com/photos/669576/pexels-photo-669576.jpeg" alt="Equipamentos Gravox Gym"></div>
+        <div class="slide"><img src="https://images.pexels.com/photos/416778/pexels-photo-416778.jpeg" alt="Ambiente Gravox Gym"></div>
+      </div>
+    </section>
 
-  <section class="container" id="planos">
-    <h2>Sobre Nós</h2>
-    <p>Bem-vindo à Gravox Gym, onde ajudamos você a alcançar seus objetivos de saúde e bem-estar com equipamentos de última geração e profissionais qualificados!</p>
+    <!-- SOBRE -->
+    <section id="sobre" class="tab-content fade-in">
+      <div class="sobre-content reveal">
+        <img src="https://images.pexels.com/photos/414029/pexels-photo-414029.jpeg" alt="Sobre a Gravox Gym" class="reveal">
+        <div>
+          <h2 class="reveal">Sobre Gravox Gym</h2>
+          <p class="reveal">Na Gravox Gym você encontra ambiente motivador, equipamentos de última geração, treinos personalizados e profissionais dedicados a resultados reais. Nossa missão é transformar vidas através da força, disciplina e saúde.</p>
+        </div>
+      </div>
+    </section>
 
-    <div class="tab-buttons">
-      <button class="tab-button active" data-tab="planoBasico">Plano Básico</button>
-      <button class="tab-button" data-tab="planoPremium">Plano Premium</button>
+    <!-- DIFERENCIAIS -->
+    <section id="diferenciais" class="tab-content fade-in">
+      <h2 class="reveal">Diferenciais Gravox Gym</h2>
+      <div class="diferenciais-lista reveal">
+        <div class="diferencial-card reveal">🏋️ Equipamentos de última geração</div>
+        <div class="diferencial-card reveal">👨‍🏫 Personal Trainers especializados</div>
+        <div class="diferencial-card reveal">💪 Treinos individualizados</div>
+        <div class="diferencial-card reveal">🥗 Nutrição personalizada</div>
+        <div class="diferencial-card reveal">🎯 Acompanhamento de resultados</div>
+      </div>
+    </section>
+
+    <!-- PLANOS -->
+    <section id="planos" class="tab-content fade-in">
+      <h2 class="reveal">Planos Gravox Gym</h2>
+      <div class="planos-lista reveal">
+        <div class="plano-card reveal">
+          <h3 class="reveal">Básico</h3>
+          <p class="reveal">✔️ Acesso completo à academia</p>
+          <p class="reveal">💲 R$ 99/mês</p>
+          <button class="comprar reveal">Assinar</button>
+        </div>
+        <div class="plano-card destaque reveal">
+          <h3 class="reveal">Premium</h3>
+          <p class="reveal">✔️ Todas as vantagens do Básico</p>
+          <p class="reveal">✔️ Aulas em grupo + Personal Trainer</p>
+          <p class="reveal">💲 R$ 199/mês</p>
+          <button class="comprar reveal">Assinar</button>
+        </div>
+        <div class="plano-card reveal">
+          <h3 class="reveal">VIP</h3>
+          <p class="reveal">✔️ Treinos exclusivos e acompanhamento</p>
+          <p class="reveal">✔️ Acesso ilimitado e consultoria completa</p>
+          <p class="reveal">💲 R$ 299/mês</p>
+          <button class="comprar reveal">Assinar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section id="galeria" class="tab-content fade-in">
+      <h2 class="reveal">Galeria Gravox Gym</h2>
+      <div class="galeria-slider reveal">
+        <div class="slide"><img src="https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg" alt="Academia Gravox 1"></div>
+        <div class="slide"><img src="https://images.pexels.com/photos/260352/pexels-photo-260352.jpeg" alt="Academia Gravox 2"></div>
+        <div class="slide"><img src="https://images.pexels.com/photos/4056723/pexels-photo-4056723.jpeg" alt="Academia Gravox 3"></div>
+        <div class="slide"><img src="https://images.pexels.com/photos/1552101/pexels-photo-1552101.jpeg" alt="Academia Gravox 4"></div>
+      </div>
+    </section>
+
+    <!-- VÍDEOS -->
+    <section id="videos" class="tab-content fade-in">
+      <h2 class="reveal">Vídeos de Treino Gravox Gym</h2>
+      <div class="video-grid reveal">
+        <video controls src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
+        <video controls src="https://www.w3schools.com/html/movie.mp4"></video>
+        <video controls src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section id="depoimentos" class="tab-content fade-in">
+      <h2 class="reveal">Depoimentos Gravox Gym</h2>
+      <div class="depoimentos-cards reveal">
+        <div class="depoimento-card active reveal">“Treinos que mudaram minha vida!” – João S.</div>
+        <div class="depoimento-card reveal">“Profissionais excelentes e ambiente motivador.” – Maria F.</div>
+        <div class="depoimento-card reveal">“Resultados visíveis em poucas semanas.” – Carlos M.</div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="tab-content fade-in">
+      <h2 class="reveal">Fale Conosco</h2>
+      <form class="reveal">
+        <input type="text" placeholder="Seu Nome" required>
+        <input type="email" placeholder="Seu Email" required>
+        <textarea rows="5" placeholder="Sua Mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="reveal">
+    <p>© 2025 Gravox Gym — Todos os direitos reservados.</p>
+    <div class="social">
+      <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">YouTube</a>
     </div>
-
-    <div id="planoBasico" class="tab-content active card">
-      <h3>Plano Básico</h3>
-      <p>Acesso ilimitado à academia</p>
-      <p><strong>R$ 99/mês</strong></p>
-    </div>
-
-    <div id="planoPremium" class="tab-content card">
-      <h3>Plano Premium</h3>
-      <p>Aulas e personal trainer incluídos</p>
-      <p><strong>R$ 199/mês</strong></p>
-    </div>
-  </section>
-
-  <section class="container" id="galeria">
-    <h2>Galeria</h2>
-    <div class="imagens">
-      <img src="academia1.jpg" class="active" alt="Academia 1">
-      <img src="academia2.jpg" alt="Academia 2">
-      <img src="academia3.jpg" alt="Academia 3">
-    </div>
-  </section>
-
-  <section class="container" id="depoimentos">
-    <h2>O que nossos alunos dizem</h2>
-    <div class="card">"A melhor academia que já frequentei! Professores excelentes." – João Silva</div>
-    <div class="card">"Estrutura completa e ambiente motivador." – Maria Oliveira</div>
-  </section>
-
-  <section class="container" id="contato">
-    <h2>Contato</h2>
-    <form id="formContato">
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required>
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="mensagem">Mensagem:</label>
-      <textarea id="mensagem" name="mensagem" required></textarea>
-
-      <button type="submit" class="button">Enviar</button>
-    </form>
-  </section>
-
-  <footer class="container">
-    <p>© 2025 Gravox Gym. Todos os direitos reservados.</p>
   </footer>
 
-  <button id="voltarTopo" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
-
+  <script src="script.js"></script>
   <script>
-    // Menu hamburger
-    const menuToggle = document.querySelector('#menu-toggle');
-    const navMenu = document.querySelector('nav ul');
-    menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
-
-    // Slideshow da galeria
-    let slideIndex = 0;
-    const slides = document.querySelectorAll('.imagens img');
-    function showSlides() {
-      slides.forEach(s => s.classList.remove('active'));
-      slideIndex = (slideIndex + 1) % slides.length;
-      slides[slideIndex].classList.add('active');
-      setTimeout(showSlides, 4000);
-    }
-    if (slides.length) showSlides();
-
-    // Tabs dos planos
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabContents = document.querySelectorAll('.tab-content');
-    tabButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.dataset.tab;
-        tabButtons.forEach(b => b.classList.remove('active'));
-        tabContents.forEach(c => c.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById(id).classList.add('active');
-      });
-    });
-
-    // Scroll suave
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const alvo = document.querySelector(link.getAttribute('href'));
-        if (alvo) alvo.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    // Validação de formulário
-    document.getElementById('formContato').addEventListener('submit', e => {
-      e.preventDefault();
-      const { nome, email, mensagem } = e.target;
-      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!nome.value || !email.value || !mensagem.value) {
-        alert('Por favor, preencha todos os campos.');
-        return;
-      }
-      if (!regex.test(email.value)) {
-        alert('Por favor, insira um email válido.');
-        return;
-      }
-      alert('Mensagem enviada com sucesso! Retornaremos em breve.');
-      e.target.reset();
-    });
-
-    // Animação de entrada
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('animar');
-      });
-    }, { threshold: 0.2 });
-    document.querySelectorAll('.card').forEach(card => observer.observe(card));
-
-    // Botão voltar ao topo
-    const voltarTopo = document.getElementById('voltarTopo');
+    // Scroll reveal básico
+    const reveals = document.querySelectorAll('.reveal');
     window.addEventListener('scroll', () => {
-      voltarTopo.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-    voltarTopo.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const revealTop = reveals[i].getBoundingClientRect().top;
+        const revealPoint = 150;
+        if(revealTop < windowHeight - revealPoint){
+          reveals[i].classList.add('show');
+        }
+      }
     });
   </script>
 </body>
