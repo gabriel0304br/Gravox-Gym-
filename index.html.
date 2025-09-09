@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -153,7 +154,7 @@
         const windowHeight = window.innerHeight;
         const revealTop = reveals[i].getBoundingClientRect().top;
         const revealPoint = 150;
-        if(revealTop < windowHeight - revealPoint){
+        if (revealTop < windowHeight - revealPoint) {
           reveals[i].classList.add('show');
         }
       }
