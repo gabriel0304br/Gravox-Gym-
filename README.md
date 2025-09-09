@@ -1,156 +1,49 @@
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gravox Gym</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap" rel="stylesheet" />
-</head>
-<body>
-  <!-- Cabeçalho -->
-  <header class="reveal">
-    <div class="header-container">
-      <h1>Gravox <span>Gym</span></h1>
-      <button id="menu-toggle" aria-label="Abrir menu">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
-      <nav>
-        <ul>
-          <li><a href="#" data-tab="home" class="active">Home</a></li>
-          <li><a href="#" data-tab="sobre">Sobre</a></li>
-          <li><a href="#" data-tab="diferenciais">Diferenciais</a></li>
-          <li><a href="#" data-tab="planos">Planos</a></li>
-          <li><a href="#" data-tab="galeria">Galeria</a></li>
-          <li><a href="#" data-tab="videos">Vídeos</a></li>
-          <li><a href="#" data-tab="depoimentos">Depoimentos</a></li>
-          <li><a href="#" data-tab="contato">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+# Gravox Gym 🏋️‍♂️
 
-  <main class="container">
-    <!-- HOME -->
-    <section id="home" class="tab-content active fade-in">
-      <div class="banner reveal">
-        <h2 class="reveal">Transforme seu Corpo com Gravox Gym!</h2>
-        <p class="reveal">Treinos personalizados, motivação e resultados reais para todos os níveis.</p>
-        <a href="#" class="button reveal" data-tab="planos">Veja Nossos Planos</a>
-      </div>
-      <div class="home-carousel reveal">
-        <div class="slide"><img src="https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg" alt="Treino Gravox Gym"></div>
-        <div class="slide"><img src="https://images.pexels.com/photos/669576/pexels-photo-669576.jpeg" alt="Equipamentos Gravox Gym"></div>
-        <div class="slide"><img src="https://images.pexels.com/photos/416778/pexels-photo-416778.jpeg" alt="Ambiente Gravox Gym"></div>
-      </div>
-    </section>
-    <!-- SOBRE -->
-    <section id="sobre" class="tab-content fade-in">
-      <div class="sobre-content reveal">
-        <img src="https://images.pexels.com/photos/414029/pexels-photo-414029.jpeg" alt="Sobre a Gravox Gym" class="reveal">
-        <div>
-          <h2 class="reveal">Sobre Gravox Gym</h2>
-          <p class="reveal">Na Gravox Gym você encontra ambiente motivador, equipamentos de última geração, treinos personalizados e profissionais dedicados a resultados reais. Nossa missão é transformar vidas através da força, disciplina e saúde.</p>
-        </div>
-      </div>
-    </section>  
-    <!-- DIFERENCIAIS -->
-    <section id="diferenciais" class="tab-content fade-in">
-      <h2 class="reveal">Diferenciais Gravox Gym</h2>
-      <div class="diferenciais-lista reveal">
-        <div class="diferencial-card reveal">🏋️ Equipamentos de última geração</div>
-        <div class="diferencial-card reveal">👨‍🏫 Personal Trainers especializados</div>
-        <div class="diferencial-card reveal">💪 Treinos individualizados</div>
-        <div class="diferencial-card reveal">🥗 Nutrição personalizada</div>
-        <div class="diferencial-card reveal">🎯 Acompanhamento de resultados</div>
-      </div>
-    </section>
-    <!-- PLANOS -->
-    <section id="planos" class="tab-content fade-in">
-      <h2 class="reveal">Planos Gravox Gym</h2>
-      <div class="planos-lista reveal">
-        <div class="plano-card reveal">
-          <h3 class="reveal">Básico</h3>
-          <p class="reveal">✔️ Acesso completo à academia</p>
-          <p class="reveal">💲 R$ 99/mês</p>
-          <button class="comprar reveal">Assinar</button>
-        </div>
-        <div class="plano-card destaque reveal">
-          <h3 class="reveal">Premium</h3>
-          <p class="reveal">✔️ Todas as vantagens do Básico</p>
-          <p class="reveal">✔️ Aulas em grupo + Personal Trainer</p>
-          <p class="reveal">💲 R$ 199/mês</p>
-          <button class="comprar reveal">Assinar</button>
-        </div>
-        <div class="plano-card reveal">
-          <h3 class="reveal">VIP</h3>
-          <p class="reveal">✔️ Treinos exclusivos e acompanhamento</p>
-          <p class="reveal">✔️ Acesso ilimitado e consultoria completa</p>
-          <p class="reveal">💲 R$ 299/mês</p>
-          <button class="comprar reveal">Assinar</button>
-        </div>
-      </div>
-    </section>
-    <!-- GALERIA -->
-    <section id="galeria" class="tab-content fade-in">
-      <h2 class="reveal">Galeria Gravox Gym</h2>
-      <div class="galeria-slider reveal">
-        <div class="slide"><img src="https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg" alt="Academia Gravox 1"></div>
-        <div class="slide"><img src="https://images.pexels.com/photos/260352/pexels-photo-260352.jpeg" alt="Academia Gravox 2"></div>
-        <div class="slide"><img src="https://images.pexels.com/photos/4056723/pexels-photo-4056723.jpeg" alt="Academia Gravox 3"></div>
-        <div class="slide"><img src="https://images.pexels.com/photos/1552101/pexels-photo-1552101.jpeg" alt="Academia Gravox 4"></div>
-      </div>
-    </section>
-    <!-- VÍDEOS -->
-    <section id="videos" class="tab-content fade-in">
-      <h2 class="reveal">Vídeos de Treino Gravox Gym</h2>
-      <div class="video-grid reveal">
-        <video controls src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
-        <video controls src="https://www.w3schools.com/html/movie.mp4"></video>
-        <video controls src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
-      </div>
-    </section>
-    <!-- DEPOIMENTOS -->
-    <section id="depoimentos" class="tab-content fade-in">
-      <h2 class="reveal">Depoimentos Gravox Gym</h2>
-      <div class="depoimentos-cards reveal">
-        <div class="depoimento-card active reveal">“Treinos que mudaram minha vida!” – João S.</div>
-        <div class="depoimento-card reveal">“Profissionais excelentes e ambiente motivador.” – Maria F.</div>
-        <div class="depoimento-card reveal">“Resultados visíveis em poucas semanas.” – Carlos M.</div>
-      </div>
-    </section>
-    <!-- CONTATO -->
-    <section id="contato" class="tab-content fade-in">
-      <h2 class="reveal">Fale Conosco</h2>
-      <form class="reveal">
-        <input type="text" placeholder="Seu Nome" required>
-        <input type="email" placeholder="Seu Email" required>
-        <textarea rows="5" placeholder="Sua Mensagem" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-    </section>
-  </main>
+Este é o site oficial da **Gravox Gym**, desenvolvido em **HTML, CSS e JavaScript**.  
+O objetivo é apresentar a academia, seus planos, diferenciais e formas de contato.
 
-  <footer class="reveal">
-    <p>© 2025 Gravox Gym — Todos os direitos reservados.</p>
-    <div class="social">
-      <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">YouTube</a>
-    </div>
-  </footer>
+---
 
-  <script src="script.js"></script>
-  <script>
-    // Scroll reveal básico
-    const reveals = document.querySelectorAll('.reveal');
-    window.addEventListener('scroll', () => {
-      for (let i = 0; i < reveals.length; i++) {
-        const windowHeight = window.innerHeight;
-        const revealTop = reveals[i].getBoundingClientRect().top;
-        const revealPoint = 150;
-        if(revealTop < windowHeight - revealPoint){
-          reveals[i].classList.add('show');
-        }
-      }
-    });
-  </script>
-</body>
-</html>
+## 📌 O que o site tem?
+
+- Página inicial com banner
+- Seção "Sobre" a academia
+- Diferenciais da Gravox Gym
+- Planos de assinatura
+- Galeria de imagens
+- Vídeos de treino
+- Depoimentos de alunos
+- Formulário de contato
+- Menu responsivo para celular
+- Animações de entrada (scroll reveal)
+
+---
+
+## 📂 Estrutura de Arquivos
+
+```
+/main
+ ├── index.html   # Página principal
+ ├── style.css    # Estilos do site
+ ├── script.js    # Funções em JavaScript
+ └── README.md    # Este arquivo
+```
+
+---
+
+## 🚀 Como usar
+
+1. Baixe ou clone este repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/gravox-gym.git
+   ```
+
+2. Abra o arquivo `index.html` em qualquer navegador.
+
+---
+
+## 📄 Licença
+
+Projeto criado apenas para fins educacionais.  
+© 2025 Gravox Gym — Todos os direitos reservados.
