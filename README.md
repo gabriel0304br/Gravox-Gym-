@@ -23,12 +23,17 @@ O objetivo é apresentar a academia, seus planos, diferenciais e formas de conta
 ## 📂 Estrutura de Arquivos
 
 ```
-/main
- ├── index.html   # Página principal
- ├── style.css    # Estilos do site
- ├── script.js    # Funções em JavaScript
- └── README.md    # Este arquivo
-```
+gravox-gym/        ← raiz do projeto
+│
+├─ login_cadastro.html     ← página de login/cadastro
+├─ tela_inicial.html       ← hero/banner inicial
+├─ index.html              ← site completo (após login)
+├─ style.css               ← CSS compartilhado
+├─ script.js               ← JS compartilhado
+├─ assets/                 ← imagens e vídeos
+│   ├─ imagens/
+│   └─ videos/
+└─ README.md               ← documentação
 
 ---
 
