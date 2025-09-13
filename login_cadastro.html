@@ -1,0 +1,181 @@
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login / Cadastro - Gravox Gym</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* =================== RESET E FORM =================== */
+body {
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.form-container {
+  background: rgba(0,0,0,0.85);
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+}
+
+button {
+  padding: 12px 25px;
+  border-radius: 30px;
+  border: none;
+  background: #00aaff;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #0088cc;
+}
+
+a {
+  color: #00aaff;
+  cursor: pointer;
+}
+
+/* =================== ABAS =================== */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.tabs div {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.1);
+  transition: 0.3s;
+}
+
+.tabs div.active {
+  background: #00aaff;
+  color: #fff;
+}
+
+/* =================== CONTEÚDO =================== */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Gravox Gym</h2>
+
+  <!-- Abas -->
+  <div class="tabs">
+    <div id="tabLogin" class="active">Login</div>
+    <div id="tabCadastro">Cadastro</div>
+  </div>
+
+  <!-- LOGIN -->
+  <div id="loginContent" class="tab-content active">
+    <form id="loginForm">
+      <input type="email" id="emailLogin" placeholder="Seu Email" required>
+      <input type="password" id="senhaLogin" placeholder="Senha" required>
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+
+  <!-- CADASTRO -->
+  <div id="cadastroContent" class="tab-content">
+    <form id="cadastroForm">
+      <input type="text" id="nome" placeholder="Seu Nome" required>
+      <input type="email" id="email" placeholder="Seu Email" required>
+      <input type="password" id="senha" placeholder="Senha" required>
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+</div>
+
+<script>
+// Alternar abas
+const tabLogin = document.getElementById('tabLogin');
+const tabCadastro = document.getElementById('tabCadastro');
+const loginContent = document.getElementById('loginContent');
+const cadastroContent = document.getElementById('cadastroContent');
+
+tabLogin.addEventListener('click', () => {
+  tabLogin.classList.add('active');
+  tabCadastro.classList.remove('active');
+  loginContent.classList.add('active');
+  cadastroContent.classList.remove('active');
+});
+
+tabCadastro.addEventListener('click', () => {
+  tabCadastro.classList.add('active');
+  tabLogin.classList.remove('active');
+  cadastroContent.classList.add('active');
+  loginContent.classList.remove('active');
+});
+
+// Cadastro
+const formCadastro = document.getElementById('cadastroForm');
+formCadastro.addEventListener('submit', function(e){
+  e.preventDefault();
+  const nome = document.getElementById('nome').value;
+  const email = document.getElementById('email').value;
+  const senha = document.getElementById('senha').value;
+
+  let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+  usuarios.push({nome, email, senha});
+  localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+  alert('Cadastro realizado com sucesso! Agora faça login.');
+  // Limpa formulário
+  formCadastro.reset();
+  // Vai para aba login
+  tabLogin.click();
+});
+
+// Login
+const formLogin = document.getElementById('loginForm');
+formLogin.addEventListener('submit', function(e){
+  e.preventDefault();
+  const emailLogin = document.getElementById('emailLogin').value;
+  const senhaLogin = document.getElementById('senhaLogin').value;
+
+  const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+  const usuario = usuarios.find(u => u.email === emailLogin && u.senha === senhaLogin);
+
+  if(usuario){
+    alert(`Bem-vindo(a), ${usuario.nome}!`);
+    // Redireciona para a página principal
+    window.location.href = 'index.html';
+  } else {
+    alert('Email ou senha incorretos!');
+  }
+});
+</script>
+</body>
+</html>
